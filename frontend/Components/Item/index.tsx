@@ -9,12 +9,11 @@ export interface ItemProps {
     nombre?: any;
     ubicacion?: any;
     id?: any;
-    _id?: any;
     temperatura?: any;
 }
-export const Item = ({ dispositivoId, nombre, ubicacion, id,temperatura}: ItemProps) => {
+export const Item = ({ dispositivoId, nombre, ubicacion,id,temperatura}: ItemProps) => {
     return (
-        <Link href={`/dispositivos/${id}`}>
+        <Link href={`/dispositivos/${dispositivoId}`}>
             <Paper elevation={3} style={{ margin: 10, padding: 20 }}>
                 <div style={{ display: "flex" }}>
                     <Typography variant="h6" style={{ fontWeight: "bold" }}>Nombre</Typography>
@@ -64,7 +63,7 @@ console.log(formattedDate); // Resultado en formato dd-mm-yyyy HH:mm:ss */
 
 export const ItemLog = ({ logId,ts,etemperatura,nodoId}: ItemLogs) => {
     return (
-        <Link href={`/logs/${logId}`}>
+        // <Link href={`/status/`}>
             <Paper elevation={3} style={{ margin: 10, padding: 20 }}>
             <   div style={{ display: "flex" }}>
                     <Typography variant="h6" style={{ fontWeight: "bold" }}>logId</Typography>
@@ -83,7 +82,7 @@ export const ItemLog = ({ logId,ts,etemperatura,nodoId}: ItemLogs) => {
                     <Typography variant="h6">: {nodoId}</Typography>
                 </div>
             </Paper>
-        </Link>
+        // </Link>
     )
 }
 

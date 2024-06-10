@@ -79,7 +79,9 @@ clientMqtt.on("connect", async function () {
         });
 
         if (buscarDispositivo) { // Si el dispositivo existe agrego un log
-            var eltime = new Date().getTime();
+            var eltime = new Date(); // fechaOriginal.setHours(fechaOriginal.getHours() - 3)
+            //eltime = eltime.setHours(eltime.getHours() - 3);
+            eltime = eltime.getTime();
             var elnodo = buscarDispositivo.dispositivoId;
             //console.log("[LOG] Nodo: " + elnodo);
             const id = await logs.findOne().sort({ "ts": -1 }).limit(1); // para obtener el maximo
@@ -133,7 +135,9 @@ clientMqtt.on("connect", async function () {
                 console.log("ERROR UPDATING");
             }
             // Agrego el log del nodo creado
-            var eltime = new Date().getTime();
+            var eltime = new Date(); // fechaOriginal.setHours(fechaOriginal.getHours() - 3)
+            //eltime = eltime.setHours(eltime.getHours() - 3);
+            eltime = eltime.getTime();
             var elnodo = jason.dispositivoId;
             //console.log("[LOG] Nodo: " + elnodo);
             //const id = await logs.find().sort({ "logId": -1 }).limit(1); // para obtener el maximo
@@ -172,6 +176,7 @@ const register = (router) => {
     });
 
     router.get('/dispositivos/:id', async function (req, res) {
+
         const listado = await dispositivo.findOne({ "_id": req.params.id });
         if (!listado) return res.json({ data: null, error: 'No hay datos en la Base de Datos.' });
         if (listado) return res.json({ data: listado, error: null });
@@ -184,6 +189,7 @@ const register = (router) => {
     });
 
     router.get('/logs/:nodoId', async function (req, res) {
+       
         const listado = await logs.find({ "nodoId": req.params.nodoId }).sort({ ts: -1 });
        // console.log(listado);
         if (!listado) return res.json({ data: null, error: 'No hay datos en la Base de Datos.' });

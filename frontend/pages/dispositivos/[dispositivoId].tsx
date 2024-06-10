@@ -14,15 +14,18 @@ const DispositivoId: NextPage = () => {
         router.back();
     }
 
-    if(dispositivoId !== undefined){
+   /*  if(dispositivoId !== undefined){
        console.log(dispositivoId);
        
-    }
+    } */
 
-    const { dispositivo } =  useDispositivoById(dispositivoId);
+    //const { dispositivo } =  useDispositivoById(dispositivoId);
     //console.log("arreglo de dispositivo dispositivoId");
-    console.log(dispositivo);
-    const { logs } = useLogsById(dispositivo?.dispositivoId);
+    //console.log(dispositivo);
+    //const { logs } = useLogsById(dispositivo?.dispositivoId);
+
+    const { logs } = useLogsById(dispositivoId);
+    // console.log("arreglo de logs dispositivoId");
     // console.log("arreglo de logs dispositivoId");
     // console.log(dispositivoId);
     //console.log(logs);

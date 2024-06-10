@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const config = require("./../../config");
 const DB_ENV = config.services.DATABASE.MONGO;
 
+mongoose.set('strictQuery', false);
+
 const db_srv = DB_ENV.HOST !== "localhost" ? "+srv" : "";
 const port = DB_ENV.PORT ? `:${DB_ENV.PORT}` : "";
 const uri = `mongodb${db_srv}://${DB_ENV.USERNAME}:${DB_ENV.PASSWORD}@${DB_ENV.HOST}${port}/${DB_ENV.DBNAME}?retryWrites=true&w=majority`;

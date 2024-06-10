@@ -27,8 +27,8 @@ export const useLogsList = () => {
 }
 
 // obtener todos los logs de un dispositivoId = nodoId determinado
-export const useLogsById = (nodoId: any) => {
-    const { data, mutate: mutateDispositivo } = useSWR(`/logs/${nodoId}`);
+export const useLogsById = (dispositivoId: any) => {
+    const { data, mutate: mutateDispositivo } = useSWR(`/logs/${dispositivoId}`);
     const logs = data?.data;
     //console.log(logs);
     return { logs, mutateDispositivo }
