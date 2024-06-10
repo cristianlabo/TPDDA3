@@ -3,10 +3,10 @@
 Este ejemplo conecta el ESP32 al BMP280, transmite los datos al backend por MQTT, los guarda en la base MongoDB para despues ser visualizados desde frontend.
 
 
-## sistema_embebido
+## Sistema embebido
 
-cd sistema_embebido	
-code.
+cd sistema_embebido  	
+code.  
 
 Configuracion SSID y PASS WiFi
 
@@ -42,11 +42,11 @@ I (58299) bmp280: MQTT_EVENT_PUBLISHED, msg_id=7688
 
 ## Backend 
 
-cd backend
-code .
-node index.js
+cd backend  
+code .  
+node index.js  
 
-se deberia ver esta salida:
+Se deberia ver esta salida:
 ```
 MQTT:mqtts://localhost
 Rutas registradas:  prueba
@@ -79,9 +79,9 @@ DISPOSITIVO ACTUALIZADO.
 
 ## Frontend
 
-cd frontend
-code .
-npm run dev
+cd frontend  
+code .  
+npm run dev  
 
 Se deberia ver esta salida:
 
