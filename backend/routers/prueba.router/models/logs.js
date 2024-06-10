@@ -8,7 +8,7 @@ const logsSchema = mongoose.Schema({
     ts: {
         type: Date,
         require: true,
-        default: new Date().getTime()
+        default: new Date()//.getTime()
     },
     etemperatura: {
         type: Number,

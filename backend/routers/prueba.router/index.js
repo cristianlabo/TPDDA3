@@ -2,7 +2,7 @@ const dispositivo = require("./models/dispositivos");
 const logs = require("./models/logs");
 const clientMqtt = require("../../storage/mqtt");
 const options = clientMqtt.MQTTOptions;
-var arrayTopicsListen = ["/#"];
+var arrayTopicsListen = ["/PLANTA_BAJA/TEMPERATURA"];
 var arrayTopicsServer = ["/PLANTA_BAJA/TEMPERATURA/"];
 
 const moment = require('moment');
@@ -80,8 +80,14 @@ clientMqtt.on("connect", async function () {
 
         if (buscarDispositivo) { // Si el dispositivo existe agrego un log
             var eltime = new Date(); // fechaOriginal.setHours(fechaOriginal.getHours() - 3)
+            console.log("elTime:"+eltime);
+
+            //eltime.setHours(eltime.getHours() - 3);
+            //console.log("elTime:", eltime);
             //eltime = eltime.setHours(eltime.getHours() - 3);
-            eltime = eltime.getTime();
+            //console.log("elTime:"+eltime);
+            //eltime = eltime.getTime();
+            //console.log("elTime:"+eltime);
             var elnodo = buscarDispositivo.dispositivoId;
             //console.log("[LOG] Nodo: " + elnodo);
             const id = await logs.findOne().sort({ "ts": -1 }).limit(1); // para obtener el maximo
@@ -91,7 +97,7 @@ clientMqtt.on("connect", async function () {
             const elLog = new logs({
                 //logId: (lid?.find(x => x?.logId)?.logId) || 0 + 1,
                 logId: lid + 1,
-                ts: eltime,
+                ts: new Date(),
                 etemperatura: parseFloat(jason.temperatura.toFixed(4)),
                 nodoId: elnodo
             });
@@ -136,8 +142,8 @@ clientMqtt.on("connect", async function () {
             }
             // Agrego el log del nodo creado
             var eltime = new Date(); // fechaOriginal.setHours(fechaOriginal.getHours() - 3)
-            //eltime = eltime.setHours(eltime.getHours() - 3);
-            eltime = eltime.getTime();
+            console.log("elTime:"+eltime);
+
             var elnodo = jason.dispositivoId;
             //console.log("[LOG] Nodo: " + elnodo);
             //const id = await logs.find().sort({ "logId": -1 }).limit(1); // para obtener el maximo
@@ -150,7 +156,7 @@ clientMqtt.on("connect", async function () {
             const elLog = new logs({
                 
                 logId: lid + 1,
-                ts: eltime,
+                ts: new Date(),
                 etemperatura:  parseFloat(jason.temperatura.toFixed(4)),
                 nodoId: elnodo
             });

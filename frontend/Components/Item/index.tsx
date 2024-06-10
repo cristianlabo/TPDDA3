@@ -57,6 +57,8 @@ let options = {
   hour12: false
 }; */
 
+
+
 /* let formattedDate = date.toLocaleString('es-ES', options).replace(',', ''); // Ajustar según el formato requerido
 console.log(formattedDate); // Resultado en formato dd-mm-yyyy HH:mm:ss */
 
@@ -72,6 +74,7 @@ export const ItemLog = ({ logId,ts,etemperatura,nodoId}: ItemLogs) => {
                 <div style={{ display: "flex" }}>
                     <Typography variant="h6" style={{ fontWeight: "bold" }}>Tiempo de medicion</Typography>
                     <Typography variant="h6">: {ts.toString().replace('T','\t').replace('Z','').slice(0,-4)}</Typography>
+                    
                 </div>
                 <div style={{ display: "flex" }}>
                     <Typography variant="h6" style={{ fontWeight: "bold" }}>Medicion de temperatura</Typography>

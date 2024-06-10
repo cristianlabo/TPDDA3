@@ -8,16 +8,21 @@ import { Paper, Typography, Button } from "@mui/material"
 
 const DispositivoId: NextPage = () => {
     const router = useRouter();
-    const { dispositivoId } = router?.query;
+/* 
+    if (router.isReady) {
+      const { dispositivoId } = router.query;
+      //dispositivoId || "defaultDispositivoId"; // Asignar valor por defecto si no está definido
+    } */
+    const { dispositivoId } = router?.query ?? 1; 
     
     const onBack = () => {
         router.back();
     }
-
-   /*  if(dispositivoId !== undefined){
+/* 
+    if(dispositivoId == "'undefined'"){
        console.log(dispositivoId);
        
-    } */
+    }  */
 
     //const { dispositivo } =  useDispositivoById(dispositivoId);
     //console.log("arreglo de dispositivo dispositivoId");
@@ -37,7 +42,7 @@ const DispositivoId: NextPage = () => {
         <div style={{ backgroundColor: 'white',textAlign: 'center'  }}>
           <h1>LOGS</h1>
         </div>
-         <Button   variant="outlined"  onClick={onBack} > Volver    </Button>
+         <Button   variant="outlined"  onClick={onBack} > Volver </Button>
           {
             logs?.map((element: ItemLogs, index: number) => <ItemLog key={index}
                 logId={element.logId}

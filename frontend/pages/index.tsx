@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           dispositivoId={element.dispositivoId}
           nombre={element.nombre}
           ubicacion={element.ubicacion}
-          id={element._id}
+          //id={element._id}
           temperatura={element.temperatura}
         />)
       }
