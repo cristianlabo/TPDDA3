@@ -5,7 +5,7 @@ Este ejemplo conecta el ESP32 al BMP280, transmite los datos al backend por MQTT
 
 ## Sistema embebido
 
-cd sistema_embebido    	
+cd sistema_embebido      	
 code.   
 
 Configuracion SSID y PASS WiFi
