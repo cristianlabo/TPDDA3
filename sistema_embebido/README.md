@@ -69,7 +69,10 @@ require_certificate true
 
 use_identity_as_username true
 
+## libreria BMP280
 
+Recordar instalar las librerias de espressif donde contine la libreria del bmp280, en mi caso se instalo en ../esp-idf-lib/components/  y luego se modifico CMakelistis.txt agregando:
+set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common $ENV{IDF_PATH}/../esp-idf-lib/components/)
 
 
 ### Ejemplo de la salida por consola al ejecutar la aplicación:
